@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 
 <html lang="en">
@@ -6,8 +7,8 @@
 
   <title>Baza</title>
 
-  <link rel="stylesheet" href="../css/home.css">
-  <link rel="icon" type="image/png"  href="../images/favicon.png">
+  <link rel="stylesheet" href="{% static '/css/home.css' %}">
+  <link rel="icon" type="image/png"  href="{% static '/image/favicon.png' %}">
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">	
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">	
@@ -59,7 +60,7 @@
         </footer>
     </div>
 
-  <script src="../js/js.js"></script>
+  <script src="{% static '/js/js.js' %}"></script>
 
 </body>
 </html>
