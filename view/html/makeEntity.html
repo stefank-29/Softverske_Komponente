@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Baza</title>
+
+		<link rel="stylesheet" href="../css/makeEntity.css" />
+		<link rel="icon" type="image/png" href="../images/favicon.png" />
+		<link
+			rel="stylesheet"
+			href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+
+	<body>
+		<div class="page-container">
+			<div class="page-content">
+				<div class="inner">
+					<form action="/?" method="POST" class="form">
+						<label for="name">Ime entiteta:</label>
+						<input type="text" name="name" id="name" />
+						<label for="atribute">Atributi:</label>
+						<div class="input__div"></div>
+						<input type="text" name="atribute" id="name" />
+						<button class="button">Dodaj</button>
+					</form>
+				</div>
+			</div>
+
+			<footer>
+				<div>
+					Copyright &copy;
+					<script>
+						document.write(new Date().getFullYear());
+					</script>
+					&nbsp;&nbsp;Created by Stefan Karaferovic & Luka Jovanovic |
+					<i class="fab fa-github"></i>
+					<a
+						href="https://github.com/kalugege/softverske_komponente"
+						target="_blank"
+						>Source code of the project</a
+					>
+				</div>
+			</footer>
+		</div>
+
+		<script src="js/script.js"></script>
+	</body>
+</html>
