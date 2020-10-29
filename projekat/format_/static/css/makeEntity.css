@@ -12,6 +12,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
+    background-color: rgb(10, 7, 7);
     background-image: url('../images/darkness.png');
     background-position: center;
 }
@@ -97,6 +98,10 @@ body {
     background-color: rgb(203, 230, 53);
 }
 
+.button.active {
+    background-color: rgb(139, 42, 42);
+}
+
 #submit {
     color: whitesmoke;
     position: absolute;
@@ -116,6 +121,8 @@ body {
 .hiden__input {
     display: none;
 }
+
+/* sudo fuser -k 8000/tcp */
 
 /* .inner__header {
     position: relative;
