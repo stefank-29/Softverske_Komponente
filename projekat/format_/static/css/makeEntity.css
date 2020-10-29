@@ -113,6 +113,10 @@ body {
 #submit:hover {
     background-color: rgb(78, 161, 52);
 }
+.hiden__input {
+    display: none;
+}
+
 /* .inner__header {
     position: relative;
     margin: 1rem auto;

@@ -8,7 +8,11 @@
         <title>Baza - Kreiranje entiteta</title>
 
         <link rel="stylesheet" href="{% static '/css/makeEntity.css' %}" />
-        <link rel="icon" type="image/png" href="{% static '/images/favicon.png' %}" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="{% static '/images/favicon.png' %}"
+        />
         <link
             rel="stylesheet"
             href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
@@ -28,21 +32,29 @@
             <div class="page-content">
                 <div class="inner">
                     <form action="?" method="POST" class="form">
+                        {% csrf_token %}
 
-                       {% csrf_token %}
-                        
-                         <label for="name">Ime entiteta:</label>
-                        <input type="text" name="name" id="name" />
+                        <label for="name">Ime entiteta:</label>
+                        <input type="text" name="name" id="name" required />
                         <label for="attribute" id="attributes">Atributi:</label>
-                        
-                            <div class="input__div">
-                            <input type="text" name="attribute-1" id="attribute-1">
+
+                        <div class="input__div">
+                            <input
+                                type="text"
+                                name="attribute-1"
+                                id="attribute-1"
+                                required
+                            />
                             <button class="button" id="btn-1">Dodaj</button>
                         </div>
-                         
+                        <input
+                            id="count"
+                            name="count"
+                            type="number"
+                            class="hiden__input"
+                            value="1"
+                        />
                         <input type="submit" value="Sacuvaj" id="submit" />
-                   
-                           
                     </form>
                 </div>
             </div>
