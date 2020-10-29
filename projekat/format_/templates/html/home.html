@@ -31,8 +31,6 @@
         <div class="page-container">
             <div class="page-content">
                 <div class="inner">
-                    
-                    </button>
                     <div class="inner__header">
                         <div class="header__icon">
                             <i class="fas fa-database"></i>
@@ -45,31 +43,34 @@
                                 Da li zelite da ucitate postojecu bazu?
                             </p>
                             <form id="form" action="{%url 'entity'%}">
-                            <div>
+                                <div>
+                                    <input
+                                        type="button"
+                                        class="button"
+                                        id="yes"
+                                        name="yes"
+                                        value="yes"
+                                    />
+                                    <input
+                                        type="button"
+                                        class="button"
+                                        id="no"
+                                        name="no"
+                                        value="no"
+                                    />
+                                </div>
                                 <input
-                                    type="button"
+                                    id="next"
                                     class="button"
-                                    id="yes"
-                                    name="yes"
-                                    value="yes"
+                                    type="submit"
+                                    value="Next"
                                 />
                                 <input
-                                    type="button"
-                                    class="button"
-                                    id="no"
-                                    name="no"
-                                    value="no"
+                                    id="typeInput"
+                                    type="text"
+                                    class="hiden__input"
                                 />
-                            </div>
-                            <input
-                                id="next"
-                                class="button"
-                                type="submit"
-                                value="Next"
-                            >
-                               
-                            </form> 
-                            
+                            </form>
                         </div>
                         <div class="choose-file"></div>
                     </div>
@@ -85,7 +86,7 @@
                     &nbsp;&nbsp;Created by Stefan Karaferovic & Luka Jovanovic |
                     <i class="fab fa-github"></i>
                     <a
-                        href="https://github.com/kalugege/softverske_komponente"
+                        href="https://github.com/stefank-29/Softverske_Komponente/tree/main/projekat"
                         target="_blank"
                         >Source code of the project</a
                     >
