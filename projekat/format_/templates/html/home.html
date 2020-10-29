@@ -22,7 +22,7 @@
 
         <div class="page-content">
             <div class="inner">
-              <button id="next">next</button>
+              <button id="next" class="button" onclick="location.href='{% url 'entity' %}'">next</button>
                 <div class="inner__header">
                     <div class="header__icon">
                         <i class="fas fa-database"></i>
@@ -35,8 +35,8 @@
                     <div class="question">
                         <p id='q'>Da li zelite da ucitate postojecu bazu?</p>
                         <div>
-                            <button class="button" id="yes">DA</button>
-                            <button class="button" id="no">NE</button>
+                            <input type="submit" class="button" id="yes" name="yes" value={{yes}}> 
+                            <button class="button" id="no" name="no">NE</button>
                         </div>
                     </div>
                     <div class="choose-file">
