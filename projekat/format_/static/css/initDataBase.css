@@ -66,6 +66,7 @@ body {
     margin: 1rem 0;
 }
 .form input {
+    width: 15rem;
     padding: 0.5rem;
     font-size: 1.5rem;
     border-radius: 3px;
@@ -76,14 +77,21 @@ body {
 
 .formHeader {
     position: relative;
+    background-color: yellowgreen;
     height: 5rem;
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 .headerItem {
-    margin-right: 3rem;
+    margin-right: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    color: whitesmoke;
+    width: 15rem;
+    background-color: red;
+    text-align: center;
 }
 .headerItem label {
     margin-right: 1rem;
@@ -154,60 +162,6 @@ body {
 }
 
 /* sudo fuser -k 8000/tcp */
-
-/* .inner__header {
-    position: relative;
-    margin: 1rem auto;
-    width: 90%;
-    height: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.header__icon {
-    position: absolute;
-    font-size: 7rem;
-    color: whitesmoke;
-    justify-self: flex-end;
-    margin-left: 5rem;
-    text-shadow: 0 0 3px rgb(197, 172, 172);
-}
-.header__text {
-    font-size: 5rem;
-    padding: 2rem;
-    margin: 2rem auto;
-    color: whitesmoke;
-    text-shadow: 0 0 5px rgb(231, 216, 150);
-    font-family: 'Roboto', sans-serif;
-} */
-
-/* .inner__content {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: flex-start;
-    width: 100%;
-/* } */
-/* .question {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.question p {
-    font-size: 2rem;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    margin: 2rem;
-    color: whitesmoke;
-}
-.question.button {
-    height: 2rem;
-    width: 4rem;
-    margin-right: 2rem;
-    cursor: pointer;
-} */
 
 /******** footer **********/
 footer div {

@@ -19,8 +19,10 @@ def makeEntity(request):
                             atributi.append(atribut)
               entitet = Entitet(title,atributi) 
               
-                     
+                
               
               
        return render(request,"html/makeEntity.html")       
     
+def dataBaseTable(request):
+       return render(request,"html/initDataBase.html")

@@ -7,7 +7,7 @@
 
         <title>Baza - Kreiranje entiteta</title>
 
-        <link rel="stylesheet" href="{% static '/css/makeEntity.css' %}" />
+        <link rel="stylesheet" href="{% static '/css/initDataBase.css' %}" />
         <link
             rel="icon"
             type="image/png"
@@ -34,40 +34,19 @@
                     <form action="?" method="POST" class="form">
                         {% csrf_token %}
                         <div class="formHeader">
-                            <div class="headerItem">
-                                <label for="name">Ime entiteta:</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    id="name"
-                                    required
-                                />
-                            </div>
-                            <div class="headerItem">
-                                <label for="name"
-                                    >Izaberite nacin unosa id-a:</label
-                                >
-                                <select name="" id="">
-                                    <option value="autoIncrement">
-                                        Autoincrement
-                                    </option>
-                                    <option value="autoIncrement">
-                                        Custom
-                                    </option>
-                                </select>
-                            </div>
+                            <!-- dodati dinamicki -->
+                            <div class="headerItem">Ime</div>
+                            <div class="headerItem">Prezime</div>
+                            <div class="headerItem">Razred</div>
+                            <div class="headerItem">Ime</div>
+                            <div class="headerItem">Prezime</div>
+                            <div class="headerItem">Razred</div>
                         </div>
-                        <label for="attribute" id="attributes">Atributi:</label>
+                        <label for="attribute" id="attributes"
+                            >Unesite instance entiteta:</label
+                        >
 
-                        <div class="input__div">
-                            <input
-                                type="text"
-                                name="attribute-1"
-                                id="attribute-1"
-                                required
-                            />
-                            <button class="button" id="btn-1">Dodaj</button>
-                        </div>
+                        <div class="input__div"></div>
                         <input
                             id="count"
                             name="count"
@@ -98,6 +77,6 @@
             </footer>
         </div>
 
-        <script src="{% static '/js/js2.js' %}"></script>
+        <script src="{% static '/js/js3.js' %}"></script>
     </body>
 </html>

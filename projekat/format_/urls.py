@@ -3,5 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('entity/',views.makeEntity,name='entity')
+    path('entity/',views.makeEntity,name='entity'), 
+    path('test/',views.dataBaseTable,name='test')
+
 ]
