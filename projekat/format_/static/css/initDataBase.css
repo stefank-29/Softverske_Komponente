@@ -144,10 +144,10 @@ body {
 #submit {
     color: whitesmoke;
     position: absolute;
-    top: 2.5rem;
+    top: -2rem;
     right: 2rem;
-    padding: 1rem 2rem;
-    font-size: 3rem;
+    padding: 0.5rem 2rem;
+    font-size: 2.5rem;
     font-family: 'Roboto', sans-serif;
     border: none;
     border-radius: 5px;
