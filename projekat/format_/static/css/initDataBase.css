@@ -144,8 +144,8 @@ body {
 #submit {
     color: whitesmoke;
     position: absolute;
-    right: 30rem;
-    bottom: 8rem;
+    top: 2.5rem;
+    right: 2rem;
     padding: 1rem 2rem;
     font-size: 3rem;
     font-family: 'Roboto', sans-serif;
