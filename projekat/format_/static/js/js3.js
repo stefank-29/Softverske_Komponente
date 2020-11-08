@@ -8,42 +8,30 @@ let id = 1;
 function addInputDiv(e) {
     e.preventDefault();
 
-    const inputDiv = document.createElement('div');
-    inputDiv.classList.add('input__div');
-    // const input = document.createElement('input');
-    // input.setAttribute('type', 'text');
-    // input.setAttribute('name', `attribute-${id}`);
-    // input.setAttribute('id', `attribute-${id}`);
-    // input.required = true;
+    const inputDiv2 = document.createElement('div');
+    inputDiv2.classList.add('input__div');
+    inputDiv2.setAttribute('id', `${id}`);
 
-    // const button = document.createElement('button');
-    // button.classList.add('button');
-    // button.setAttribute('id', `btn-${id++}`);
-    // button.textContent = 'Dodaj';
-    // button.addEventListener('click', addInputDiv);
+    const attributesHeader = document.querySelector('.formHeader');
+    let len = attributesHeader.childElementCount;
 
-    // let value = parseInt(count.value);
-    // count.value = value + 1;
     for (let i = 0; i < len; i++) {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('name', `${attributes[i]}-${id}`);
         input.setAttribute('id', `${attributes[i]}-${id}`);
         input.required = true;
-        inputDiv.appendChild(input);
+        inputDiv2.appendChild(input);
     }
     id++;
 
     const button = document.createElement('button');
     button.classList.add('button');
     button.textContent = 'Dodaj';
-    button.addEventListener('click', addInputs);
-    inputDiv.appendChild(button);
+    button.addEventListener('click', addInputDiv);
+    inputDiv2.appendChild(button);
 
-    inputDiv.appendChild(input);
-    inputDiv.appendChild(button);
-
-    form.appendChild(inputDiv);
+    form.appendChild(inputDiv2);
 
     this.parentNode.removeChild(this);
 }
@@ -71,7 +59,7 @@ function addInputs() {
     const button = document.createElement('button');
     button.classList.add('button');
     button.textContent = 'Dodaj';
-    button.addEventListener('click', addInputs);
+    button.addEventListener('click', addInputDiv);
     inputDiv.appendChild(button);
 }
 

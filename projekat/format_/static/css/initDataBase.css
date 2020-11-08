@@ -38,7 +38,7 @@ body {
     position: relative;
     background-color: rgba(38, 47, 105, 0.4);
     width: 70%;
-    height: 80%;
+    height: 75%;
     border-radius: 10px;
     border: 3px solid rgb(38, 47, 105);
     box-shadow: 0 0 5px 1px whitesmoke;
@@ -52,7 +52,7 @@ body {
     /* background-color: whitesmoke; */
     position: relative;
     height: 90%;
-    width: 90%;
+    width: 95%;
     padding: 3rem 3rem 5rem;
     display: flex;
     flex-direction: column;
@@ -77,7 +77,6 @@ body {
 
 .formHeader {
     position: relative;
-    background-color: yellowgreen;
     height: 5rem;
     width: 100%;
     display: flex;
@@ -85,6 +84,7 @@ body {
     justify-content: flex-start;
 }
 .headerItem {
+    padding: 0.5rem 0;
     margin-right: 2rem;
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
@@ -144,8 +144,8 @@ body {
 #submit {
     color: whitesmoke;
     position: absolute;
-    right: 5rem;
-    bottom: 5rem;
+    top: 2.5rem;
+    right: 2rem;
     padding: 1rem 2rem;
     font-size: 3rem;
     font-family: 'Roboto', sans-serif;
