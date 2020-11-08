@@ -1,13 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .Entitet import Entitet
+from django.shortcuts import redirect
 def home(request):
                                           
-       return render(request, "html/home.html")
-
+     
+       if request.method == "POST":
+              
+              impl = request.POST.get('typeInput')
+              
+              return redirect('entity')
+              # return render(request,"html/makeEntity.html" , {'impl':impl})       
+       else:
+              return render(request, "html/home.html")
 def makeEntity(request):
      
        if request.method == "POST":
+              print('post')
               title = request.POST.get('name')
               atributi = []
               
@@ -18,11 +27,13 @@ def makeEntity(request):
                      else:
                             atributi.append(atribut)
               entitet = Entitet(title,atributi) 
+              print(entitet.attributes)
+              return render(request,"html/initDataBase.html",{'entitet':entitet})
               
-                
+             
               
-              
-       return render(request,"html/makeEntity.html")       
+       else:       
+              return render(request,"html/makeEntity.html")       
     
 def dataBaseTable(request):
        return render(request,"html/initDataBase.html")
