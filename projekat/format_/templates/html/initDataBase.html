@@ -35,6 +35,13 @@
                         {% csrf_token %}
                         <div class="formHeader">
                             <!-- dodati dinamicki -->
+<<<<<<< HEAD
+                            {% for entitet in entitet.attributes %}
+                                                       
+                            <div class="headerItem">{{entitet}}</div>
+                            
+                             {%endfor%}
+=======
 
                             <div class="headerItem">Ime</div>
                             <div class="headerItem">Prezime</div>
@@ -42,6 +49,7 @@
                             <div class="headerItem">Ime</div>
                             <div class="headerItem">Prezime</div>
                             <div class="headerItem">Razred</div>
+>>>>>>> 062390afd23ed3ef1ec78b6e2f74fe8b70f965da
                         </div>
                         <label for="attribute" id="attributes"
                             >Unesite instance entiteta:</label

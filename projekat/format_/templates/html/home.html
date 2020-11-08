@@ -42,7 +42,8 @@
                             <p id="q">
                                 Da li zelite da ucitate postojecu bazu?
                             </p>
-                            <form id="form" action="{%url 'entity'%}">
+                            <form id="form" method="post">
+                                {%csrf_token%}
                                 <div>
                                     <input
                                         type="button"
@@ -69,6 +70,7 @@
                                     id="typeInput"
                                     type="text"
                                     class="hiden__input"
+                                    name="typeInput"
                                 />
                             </form>
                         </div>
