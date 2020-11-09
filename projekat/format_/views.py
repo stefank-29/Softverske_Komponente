@@ -38,24 +38,33 @@ def makeEntity(request):
        else:       
               return render(request,"html/makeEntity.html")       
     
-def dataBaseTable(request,entitet=None):
+def dataBaseTable(request):
+       entitet = request.session['e']
+      
        if request.method == "POST":
               
-              return render(request, 'html/dbTable.html')
+              nizRedova=[]
+              count = request.POST.get('count')       
+              for i in range(int(count)+1): 
+                     red =[] 
+                     for j in entitet.get('attributes'): 
+                            
+                            red.append(request.POST.get(f'{j}-{i+1}'))              
+                     nizRedova.append(red)
+              request.session['niz']=nizRedova
+              return redirect('table')
        else: 
                 
-              entitet = request.session['e']
-              print(entitet)
+             
+              
               return render(request, 'html/initDataBase.html',{'entitet':entitet})
 
 
 def dbTable(request):
-       title = 'Skola'
-       atributi = ['ime', 'prezime', 'razred']
-       student1 =  ['stefan', 'karaferovic', '3']
-       student2 =  ['luka', 'jovanovic', '3']
-       entitet = Entitet(title, atributi)
+       nizRedova = request.session['niz']
+       entitet = request.session['e']
 
-       data = [student1, student2]
+       
+       print(nizRedova)
 
-       return render(request, 'html/dbTable.html', {'entitet': entitet, 'data':data})
+       return render(request, 'html/dbTable.html',{'entitet':entitet,'data':nizRedova})
