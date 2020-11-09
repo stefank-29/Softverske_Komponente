@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Baza - Kreiranje entiteta</title>
+
+        <link rel="stylesheet" href="{% static '/css/initDataBase.css' %}" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="{% static '/images/favicon.png' %}"
+        />
+        <link
+            rel="stylesheet"
+            href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <div class="page-container">
+            <div class="page-content">
+                <div class="inner">
+                    <form action="?" method="POST" class="form">
+                        {% csrf_token %}
+                        <div class="headerItem" id="entity-name">
+                            {{entitet.title}}
+                        </div>
+                        <div class="formHeader">
+                            <!--TODO buttoni za add, delete, update -->
+
+                            <input type="submit" class="button" value="Add" />
+                            <input
+                                type="submit"
+                                class="button"
+                                value="Delete"
+                            />
+                            <input
+                                type="submit"
+                                class="button"
+                                value="Update"
+                            />
+                            <input
+                                type="submit"
+                                class="button"
+                                value="Filter"
+                            />
+
+                            <!-- {% for entitet in entitet.attributes %}
+
+                            <div class="headerItem">{{entitet}}</div>
+
+                            {%endfor%} -->
+                        </div>
+                        <label for="attribute" id="attributes"
+                            >Tabela entiteta:</label
+                        >
+
+                        <!-- tabela -->
+                        <table id="t01">
+                            <!-- dinamicki dodati headere i polja -->
+                            {% for entitet in entitet.attributes %}
+
+                            <div class="headerItem">{{entitet}}</div>
+
+                            {%endfor%}
+
+                            <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Age</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" value="Eve" />
+                                </td>
+                                <td><input type="text" value="Jackson" /></td>
+                                <td><input type="text" value="5" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" value="Eve" />
+                                </td>
+                                <td><input type="text" value="Jackson" /></td>
+                                <td><input type="text" value="5" /></td>
+                            </tr>
+
+                            <!-- ovo ostaviti uvek -->
+                            <tr>
+                                <td>
+                                    <input type="text" value="" />
+                                </td>
+                                <td><input type="text" value="" /></td>
+                                <td><input type="text" value="" /></td>
+                            </tr>
+                        </table>
+
+                        <input type="submit" value="Sacuvaj" id="submit" />
+                    </form>
+                </div>
+            </div>
+
+            <footer>
+                <div>
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    &nbsp;&nbsp;Created by Stefan Karaferovic & Luka Jovanovic |
+                    <i class="fab fa-github"></i>
+                    <a
+                        href="https://github.com/stefank-29/Softverske_Komponente/tree/main/projekat"
+                        target="_blank"
+                        >Source code of the project</a
+                    >
+                </div>
+            </footer>
+        </div>
+
+        <script src="{% static '/js/js3.js' %}"></script>
+    </body>
+</html>
