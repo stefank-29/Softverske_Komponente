@@ -1,6 +1,7 @@
 import json
-
-class Entitet:
+from django.db import models
+ 
+class Entitet():
    def __init__(self,title,attributes):
         self.title=title
         self.attributes = attributes.copy()
