@@ -1,3 +1,71 @@
+/********** table ***********/
+table {
+    width: 100%;
+}
+table,
+th,
+td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    outline: none;
+}
+td input {
+    min-width: 100%;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border: none;
+}
+th {
+    padding: 1rem;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 1.5rem;
+    height: 4rem;
+}
+td {
+    padding: 0;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+
+    font-size: 1.5rem;
+    height: 4rem;
+}
+td input:hover {
+    cursor: pointer;
+    background-color: rgb(223, 215, 215);
+}
+#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+    background-color: #fff;
+}
+#t01 th {
+    background-color: rgb(50, 69, 165);
+    color: white;
+}
+
+input.button {
+    width: 10rem !important;
+    padding: 1.2rem 0.7rem;
+    margin-right: 5rem;
+    font-size: 1.7rem !important;
+    font-family: 'Roboto', sans-serif;
+    border: none !important;
+    border-radius: 5px;
+    background-color: rgb(69, 150, 31) !important;
+    cursor: pointer;
+    outline: none;
+    color: whitesmoke;
+}
+.button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(100, 221, 44) !important;
+}
+
 *,
 *::after,
 *::before {
@@ -160,7 +228,12 @@ body {
 .hiden__input {
     display: none;
 }
-
+#entity-name {
+    position: absolute;
+    left: 2.9rem;
+    top: -2.5rem !important;
+    background-color: rgb(51, 197, 117) !important;
+}
 /* sudo fuser -k 8000/tcp */
 
 /******** footer **********/

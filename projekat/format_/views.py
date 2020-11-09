@@ -37,3 +37,7 @@ def makeEntity(request):
     
 def dataBaseTable(request):
        return render(request,"html/initDataBase.html")
+
+
+def dbTable(request):
+       return render(request, 'html/dbTable.html')

@@ -33,6 +33,9 @@
                 <div class="inner">
                     <form action="?" method="POST" class="form">
                         {% csrf_token %}
+                        <div class="headerItem" id="entity-name">
+                            {{entitet.title}}
+                        </div>
                         <div class="formHeader">
                             <!-- dodati dinamicki -->
 
@@ -52,7 +55,7 @@
                             name="count"
                             type="number"
                             class="hiden__input"
-                            value="1"
+                            value="0"
                         />
 
                         <input type="submit" value="Sacuvaj" id="submit" />
