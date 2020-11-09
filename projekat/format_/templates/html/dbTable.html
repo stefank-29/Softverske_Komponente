@@ -65,37 +65,29 @@
                         <label for="attribute" id="attributes"
                             >Tabela entiteta:</label
                         >
-
+                        <div id="example"></div>
                         <!-- tabela -->
                         <table id="t01">
-                            <!-- dinamicki dodati headere i polja -->
-                            {% for entitet in entitet.attributes %}
-
-                            <div class="headerItem">{{entitet}}</div>
-
-                            {%endfor%}
-
                             <tr>
+                                {% for entitet in entitet.attributes %}
+                                <th>{{entitet}}</th>
+                                {%endfor%}
+                            </tr>
+
+                            <!-- <tr>
                                 <th>Firstname</th>
                                 <th>Lastname</th>
                                 <th>Age</th>
-                            </tr>
+                            </tr> -->
+                            {% for student in data %}
                             <tr>
+                                {% for vrednost in student %}
                                 <td>
-                                    <input type="text" value="Eve" />
+                                    <input type="text" value="{{vrednost}}" />
                                 </td>
-                                <td><input type="text" value="Jackson" /></td>
-                                <td><input type="text" value="5" /></td>
+                                {%endfor%}
                             </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" value="Eve" />
-                                </td>
-                                <td><input type="text" value="Jackson" /></td>
-                                <td><input type="text" value="5" /></td>
-                            </tr>
-
-                            <!-- ovo ostaviti uvek -->
+                            {%endfor%}
                             <tr>
                                 <td>
                                     <input type="text" value="" />
@@ -103,6 +95,28 @@
                                 <td><input type="text" value="" /></td>
                                 <td><input type="text" value="" /></td>
                             </tr>
+                            <!-- <tr>
+                                <td>
+                                    <input type="text" value="Eve" />
+                                </td>
+                                <td><input type="text" value="Jackson" /></td>
+                                <td><input type="text" value="5" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" value="Eve" />
+                                </td>
+                                <td><input type="text" value="Jackson" /></td>
+                                <td><input type="text" value="5" /></td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="text" value="" />
+                                </td>
+                                <td><input type="text" value="" /></td>
+                                <td><input type="text" value="" /></td>
+                            </tr> -->
                         </table>
 
                         <input type="submit" value="Sacuvaj" id="submit" />
@@ -127,6 +141,6 @@
             </footer>
         </div>
 
-        <script src="{% static '/js/js3.js' %}"></script>
+        <script src="{% static '/js/tableListeners.js' %}"></script>
     </body>
 </html>
