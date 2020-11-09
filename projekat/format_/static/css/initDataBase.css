@@ -37,6 +37,9 @@ td input:hover {
     cursor: pointer;
     background-color: rgb(223, 215, 215);
 }
+td.selected input {
+    background-color: rgb(216, 194, 194);
+}
 #t01 tr:nth-child(even) {
     background-color: #eee;
 }

@@ -40,4 +40,12 @@ def dataBaseTable(request):
 
 
 def dbTable(request):
-       return render(request, 'html/dbTable.html')
+       title = 'Skola'
+       atributi = ['ime', 'prezime', 'razred']
+       student1 =  ['stefan', 'karaferovic', '3']
+       student2 =  ['luka', 'jovanovic', '3']
+       entitet = Entitet(title, atributi)
+
+       data = [student1, student2]
+
+       return render(request, 'html/dbTable.html', {'entitet': entitet, 'data':data})
