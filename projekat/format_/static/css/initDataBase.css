@@ -160,7 +160,12 @@ body {
 .hiden__input {
     display: none;
 }
-
+#entity-name {
+    position: absolute;
+    left: 2.9rem;
+    top: -2.5rem !important;
+    background-color: rgb(51, 197, 117) !important;
+}
 /* sudo fuser -k 8000/tcp */
 
 /******** footer **********/

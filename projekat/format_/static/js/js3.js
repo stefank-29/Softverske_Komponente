@@ -25,6 +25,9 @@ function addInputDiv(e) {
     }
     id++;
 
+    let value = parseInt(count.value);
+    count.value = value + 1;
+
     const button = document.createElement('button');
     button.classList.add('button');
     button.textContent = 'Dodaj';
