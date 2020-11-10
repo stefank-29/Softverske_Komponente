@@ -36,7 +36,7 @@ class JSON():
                 for k, v in doc.items():
                     print(f"{k} {v}")
 
-    
+        
 
 
 proba = JSON('skola', ['ime', 'prezime', 'razred'], [['stefan', 'karaferovic', 'treci'], ['luka', 'jovanovic', 'treci']], 'test.json')
