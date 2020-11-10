@@ -13,10 +13,18 @@ def home(request):
                                           
      
        if request.method == "POST":
-              
+             
               impl = request.POST.get('typeInput')
-              
-              return redirect('entity')
+              print(request.POST.get('typeInput'))
+              if impl == 'Custom' or impl == 'json' or impl == 'xml':
+                     request.session['putanja']=None
+                     return redirect('entity')
+              else:
+                     putanja = request.POST.get('myfile')
+                     # putanja = request.FILES['myfile'].read()
+                     request.session['putanja']=putanja
+
+                     return redirect('table')
               # return render(request,"html/makeEntity.html" , {'impl':impl})       
        else:
               return render(request, "html/home.html")
@@ -88,11 +96,41 @@ def dataBaseTable(request):
 
 
 def dbTable(request):
-       nizRedova = request.session['niz']
-       ent = request.session['e']
-
-       entitet = Entitet(ent.get('title'),ent.get('attributes'),0)
+       nizRedova = []
        
+       ent = request.session['e']
+       entitet = Entitet(None,[],None)
+       if request.session['putanja'] == None: 
+              entitet.attributes = ent.get('attributes')
+              entitet.title = ent.get('title')
+              entitet.id_=0       
+       else:
+            attr = []
+           
+            json = JSON(entitet.title,entitet.attributes,nizRedova,request.session['putanja'])
+            obj=json.read(request.session['putanja'])
+            entitet.title = obj[0].get('Ime')  
+            
+            for i in obj[1].keys():
+                attr.append(i)
+               
+            for iterator in obj[1:]:
+                red = []
+                for k,v in iterator.items():
+                    
+                    red.append(v)
+                
+                nizRedova.append(red)
+            entitet.attributes = attr
+            entitet.id_=0
+                                                             
+       
+       if request.method == "POST":
+             if request.POST.get('delete'):
+                    pass
+             elif request.POST.get('update'):
+               pass       
+
        
        
        
