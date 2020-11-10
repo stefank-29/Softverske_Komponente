@@ -1,9 +1,27 @@
 const button = document.querySelector('#btn-1');
 const form = document.querySelector('.form');
 const count = document.querySelector('#count');
+const chooseFile = document.querySelector('#myFile');
+const submit = document.querySelector('#submit');
 let attributes = [];
 
 let id = 1;
+
+function saveFile(event) {
+    if (chooseFile.value == '') {
+        event.preventDefault();
+        // chooseFile.click();
+        // submit.click();
+        content = '';
+        uriContent =
+            'data:application/octet-stream,' + encodeURIComponent(content);
+        window.open(uriContent, 'neuesDokument');
+    } else {
+        submit.click();
+    }
+}
+
+submit.addEventListener('click', saveFile);
 
 function addInputDiv(e) {
     e.preventDefault();
