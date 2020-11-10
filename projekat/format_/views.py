@@ -6,12 +6,13 @@ from .jsonImplementation import JSON
 import glob
 import os
 from django.core.files.storage import FileSystemStorage
-
-
+import os
+import platform
+import subprocess
 global ent
 def home(request):
                                           
-     
+      
        if request.method == "POST":
              
               impl = request.POST.get('typeInput')
@@ -106,9 +107,21 @@ def dbTable(request):
               entitet.id_=0       
        else:
             attr = []
-           
-            json = JSON(entitet.title,entitet.attributes,nizRedova,request.session['putanja'])
-            obj=json.read(request.session['putanja'])
+            plat = platform.system()
+            fajl = None
+            f = request.session['putanja']
+            if plat == 'Linux':
+                fajl=subprocess.getoutput(f'find "$(cd ..; pwd)" -name {f}')
+            
+            
+            print('p')
+            
+            print(request.session['putanja'])
+            fajl=subprocess.getoutput(f'find "$(cd ..; pwd)" -name {f}')
+            # fajl = fajl + '/' +str(request.session['putanja'])
+            print(fajl)
+            json = JSON(entitet.title,entitet.attributes,nizRedova,fajl)
+            obj=json.read(fajl)
             entitet.title = obj[0].get('Ime')  
             
             for i in obj[1].keys():
@@ -116,7 +129,7 @@ def dbTable(request):
                
             for iterator in obj[1:]:
                 red = []
-                for k,v in iterator.items():
+                for v in iterator.values():
                     
                     red.append(v)
                 
@@ -126,10 +139,13 @@ def dbTable(request):
                                                              
        
        if request.method == "POST":
-             if request.POST.get('delete'):
-                    pass
-             elif request.POST.get('update'):
-               pass       
+        print('post')
+        if request.POST.get('delete'):
+            input = request.POST.get('get')
+            print('sds')
+            print(input)      
+        elif request.POST.get('update'):
+            print('aaaa')       
 
        
        
