@@ -3,6 +3,7 @@ const form = document.querySelector('.form');
 const count = document.querySelector('#count');
 const chooseFile = document.querySelector('#myFile');
 const submit = document.querySelector('#submit');
+const isAutoinc = document.querySelector('.hidden');
 // const downloadsFolder = require('downloads-folder');
 //import df from 'downloads-folder';
 
@@ -66,7 +67,26 @@ function addInputDiv(e) {
     const attributesHeader = document.querySelector('.formHeader');
     let len = attributesHeader.childElementCount;
 
-    for (let i = 0; i < len; i++) {
+    if (isAutoinc.textContent == '0') {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `id-${id}`);
+        input.setAttribute('id', `id-${id}`);
+        input.setAttribute('value', `${id}`);
+        input.required = true;
+        input.disabled = true;
+
+        inputDiv2.appendChild(input);
+    } else {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `${id}`);
+        input.setAttribute('id', `${id}`);
+        input.required = true;
+        inputDiv2.appendChild(input);
+    }
+
+    for (let i = 1; i < len; i++) {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('name', `${attributes[i]}-${id}`);
@@ -99,8 +119,26 @@ function addInputs() {
     headerItems.forEach((item) => {
         attributes.push(item.textContent);
     });
+    if (isAutoinc.textContent == '0') {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `id-1`);
+        input.setAttribute('id', `id-1`);
+        input.setAttribute('value', `1`);
+        input.required = true;
+        input.disabled = true;
 
-    for (let i = 0; i < len; i++) {
+        inputDiv.appendChild(input);
+    } else {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `id-1`);
+        input.setAttribute('id', `id-1`);
+        input.required = true;
+        inputDiv.appendChild(input);
+    }
+
+    for (let i = 1; i < len; i++) {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('name', `${attributes[i]}-${id}`);

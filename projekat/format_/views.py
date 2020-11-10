@@ -28,7 +28,7 @@ def makeEntity(request):
               atributi = []
               id_ = request.POST.get('i')
               request.session['id_']=id_
-             
+              atributi.append('id')
               #################################uraditi count opet
               for i in range (1,100):
                      atribut = request.POST.get('attribute-' + str(i))
