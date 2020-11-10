@@ -217,7 +217,8 @@ body {
     background-color: rgb(139, 42, 42);
 }
 
-#submit {
+#submit,
+.submit {
     color: whitesmoke;
     position: absolute;
     top: -2rem;
@@ -230,7 +231,8 @@ body {
     background-color: rgb(31, 85, 15);
     cursor: pointer;
 }
-#submit:hover {
+#submit:hover,
+.submit:hover {
     background-color: rgb(78, 161, 52);
 }
 .hiden__input {
