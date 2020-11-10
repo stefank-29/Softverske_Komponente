@@ -244,6 +244,9 @@ body {
     top: -2.5rem !important;
     background-color: rgb(51, 197, 117) !important;
 }
+tr.hidden {
+    display: none;
+}
 /* sudo fuser -k 8000/tcp */
 
 /******** footer **********/
