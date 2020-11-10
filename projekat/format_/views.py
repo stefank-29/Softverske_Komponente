@@ -76,6 +76,8 @@ def dataBaseTable(request):
               file_ = entitet.title +'.json'
               json = JSON(entitet.title,entitet.attributes,nizRedova,file_)
               json.write()
+
+              json.delete({"id": 1,"j": "s"})
               return redirect('table')
               
        else: 
