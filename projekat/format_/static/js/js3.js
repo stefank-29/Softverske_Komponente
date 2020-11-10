@@ -54,7 +54,7 @@ function saveFile(event) {
     //console.log(df());
 }
 
-submit.addEventListener('click', saveFile);
+//submit.addEventListener('click', saveFile);
 
 function addInputDiv(e) {
     e.preventDefault();

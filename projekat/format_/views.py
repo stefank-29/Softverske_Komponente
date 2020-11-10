@@ -2,9 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .Entitet import Entitet
 from django.shortcuts import redirect,reverse
-
+from .jsonImplementation import JSON  
 import glob
 import os
+from django.core.files.storage import FileSystemStorage
+
 
 global ent
 def home(request):
@@ -24,6 +26,9 @@ def makeEntity(request):
               
               title = request.POST.get('name')
               atributi = []
+              id_ = request.POST.get('i')
+              request.session['id_']=id_
+             
               #################################uraditi count opet
               for i in range (1,100):
                      atribut = request.POST.get('attribute-' + str(i))
@@ -31,7 +36,7 @@ def makeEntity(request):
                             break
                      else:
                             atributi.append(atribut)
-              entitet = Entitet(title,atributi) 
+              entitet = Entitet(title,atributi,0) 
               
               request.session['e']=entitet.__dict__
               
@@ -42,20 +47,33 @@ def makeEntity(request):
               return render(request,"html/makeEntity.html")       
     
 def dataBaseTable(request):
-       entitet = request.session['e']
-      
+       ent = request.session['e']
+
+       entitet = Entitet(ent.get('title'),ent.get('attributes'),0)
+       id_ = request.session['id_'] 
+        
        if request.method == "POST":
-              
+              ent = request.session['e']
               nizRedova=[]
-              count = request.POST.get('count')       
+              count = request.POST.get('count')
+                    
               for i in range(int(count)+1): 
+                     
                      red =[] 
-                     for j in entitet.get('attributes'): 
+                     if id_ == 'autoIncrement':
+                            red.append(i+1)
+                     for j in ent.get('attributes'): 
                             
-                            red.append(request.POST.get(f'{j}-{i+1}'))              
+                            red.append(request.POST.get(f'{j}-{i+1}'))
+                     
+
                      nizRedova.append(red)
               request.session['niz']=nizRedova
+            
              
+              file_ = entitet.title +'.json'
+              json = JSON(entitet.title,entitet.attributes,nizRedova,file_)
+              json.write()
               return redirect('table')
               
        else: 
@@ -69,10 +87,9 @@ def dbTable(request):
        nizRedova = request.session['niz']
        ent = request.session['e']
 
-       entitet = Entitet(ent.get('title'),ent.get('attributes'))
+       entitet = Entitet(ent.get('title'),ent.get('attributes'),0)
        
-       # list_of_files = glob.glob('/path/to/folder/*') # * means all if need specific format then *.csv
-       # latest_file = max(list_of_files, key=os.path.getmtime)
-       # print( latest_file)
+       
+       
        
        return render(request, 'html/dbTable.html',{'entitet':entitet,'data':nizRedova})
