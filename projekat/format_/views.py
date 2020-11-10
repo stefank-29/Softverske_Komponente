@@ -55,9 +55,7 @@ def dataBaseTable(request):
                             red.append(request.POST.get(f'{j}-{i+1}'))              
                      nizRedova.append(red)
               request.session['niz']=nizRedova
-              list_of_files = glob.glob('/path/to/folder/*') # * means all if need specific format then *.csv
-              latest_file = max(list_of_files, key=os.path.getctime)
-              print (latest_file)
+             
               return redirect('table')
               
        else: 
@@ -73,6 +71,8 @@ def dbTable(request):
 
        entitet = Entitet(ent.get('title'),ent.get('attributes'))
        
-      
+       # list_of_files = glob.glob('/path/to/folder/*') # * means all if need specific format then *.csv
+       # latest_file = max(list_of_files, key=os.path.getmtime)
+       # print( latest_file)
        
        return render(request, 'html/dbTable.html',{'entitet':entitet,'data':nizRedova})

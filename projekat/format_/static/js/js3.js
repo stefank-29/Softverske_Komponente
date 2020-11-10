@@ -9,38 +9,47 @@ const submit = document.querySelector('#submit');
 let attributes = [];
 
 let id = 1;
-let flag = false;
+let flag = 0;
 
 function saveFile(event) {
-    event.preventDefault();
-    // chooseFile.click();
-    // submit.click();
-    // json = '';
-    // uriContent =
-    //     'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
-    // window.open(uriContent, 'neuesDokument');
-    // json = '';
-    // var uri = 'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
-    // var link = document.createElement('a');
-    // link.setAttribute('download', 'file.json');
-    // link.setAttribute('href', uri);
-    // document.body.appendChild(link);
-    // link.click();
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then((resp) => resp.blob())
-        .then((blob) => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            // the filename you want
-            a.download = 'todo-1.json';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            //alert('your file has downloaded!'); // or you know, something with better UX...
-        })
-        .catch(() => alert('oh no!'));
+    if (flag == 0) {
+        event.preventDefault();
+
+        // chooseFile.click();
+        // submit.click();
+        // json = '';
+        // uriContent =
+        //     'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
+        // window.open(uriContent, 'neuesDokument');
+        // json = '';
+        // var uri = 'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
+        // var link = document.createElement('a');
+        // link.setAttribute('download', 'file.json');
+        // link.setAttribute('href', uri);
+        // document.body.appendChild(link);
+        // link.click();
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then((resp) => resp.blob())
+            .then((blob) => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                // the filename you want
+                a.download = 'todo-1.json';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                //alert('your file has downloaded!'); // or you know, something with better UX...
+                flag += 1;
+
+                saveFile(event);
+            })
+            .catch(() => alert('oh no!'));
+    } else {
+        submit.click();
+        return;
+    }
 
     //console.log(df());
 }
