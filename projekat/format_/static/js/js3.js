@@ -15,20 +15,6 @@ let flag = 0;
 function saveFile(event) {
     if (flag == 0) {
         event.preventDefault();
-
-        // chooseFile.click();
-        // submit.click();
-        // json = '';
-        // uriContent =
-        //     'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
-        // window.open(uriContent, 'neuesDokument');
-        // json = '';
-        // var uri = 'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
-        // var link = document.createElement('a');
-        // link.setAttribute('download', 'file.json');
-        // link.setAttribute('href', uri);
-        // document.body.appendChild(link);
-        // link.click();
         fetch('https://jsonplaceholder.typicode.com/todos/1')
             .then((resp) => resp.blob())
             .then((blob) => {

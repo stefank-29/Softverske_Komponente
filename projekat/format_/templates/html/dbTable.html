@@ -31,7 +31,7 @@
         <div class="page-container">
             <div class="page-content">
                 <div class="inner">
-                    <form action="?" method="POST" class="form">
+                    <form action="" method="POST" name="submit" class="form">
                         {% csrf_token %}
                         <div class="headerItem" id="entity-name">
                             {{entitet.title}}
@@ -41,6 +41,7 @@
 
                             <input type="submit" class="button" value="Add" />
                             <input
+                                id="delete"
                                 type="submit"
                                 class="button"
                                 name="delete"
@@ -90,9 +91,9 @@
                             </tr>
                             {%endfor%}
                             <tr>
-                                {% for vrednost in student %}
+                                {% for vrednost in entitet.attributes %}
                                 <td>
-                                    <input type="text" value="" />
+                                    <input type="text" value="" required />
                                 </td>
                                 {%endfor%}
                                 <!-- <td>
@@ -125,7 +126,7 @@
                             </tr> -->
                         </table>
 
-                        <input type="submit" value="Sacuvaj" id="submit" />
+                        <input type="submit" value="Sacuvaj" class="submit" />
                     </form>
                 </div>
             </div>
