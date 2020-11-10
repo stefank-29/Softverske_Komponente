@@ -1,6 +1,7 @@
 const button = document.querySelector('#btn-1');
 const form = document.querySelector('.form');
 const count = document.querySelector('#count');
+const downloadsFolder = require('downloads-folder');
 
 let id = 2;
 
@@ -14,6 +15,7 @@ function addInputDiv(e) {
     input.setAttribute('name', `attribute-${id}`);
     input.setAttribute('id', `attribute-${id}`);
     input.required = true;
+    
 
     const button = document.createElement('button');
     button.classList.add('button');

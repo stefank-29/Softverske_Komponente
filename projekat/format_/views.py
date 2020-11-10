@@ -62,9 +62,10 @@ def dataBaseTable(request):
 
 def dbTable(request):
        nizRedova = request.session['niz']
-       entitet = request.session['e']
+       ent = request.session['e']
 
+       entitet = Entitet(ent.get('title'),ent.get('attributes'))
        
-       print(nizRedova)
+      
 
        return render(request, 'html/dbTable.html',{'entitet':entitet,'data':nizRedova})

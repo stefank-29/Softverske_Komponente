@@ -6,6 +6,7 @@ const next = document.querySelector('#next');
 const form = document.querySelector('#form');
 const typeInput = document.querySelector('#typeInput');
 
+
 let isCreated = '';
 let type = '';
 
@@ -15,6 +16,8 @@ yes.addEventListener('click', (e) => {
     const input = file.querySelector('input');
     input.addEventListener('change', () => {
         console.log(input.value);
+        console.log(downloadsFolder());
+
     });
     isCreated = 'yes';
     e.target.classList.add('active');
