@@ -49,6 +49,11 @@ class JSON():
         self.write()        
                  
                 
-
-
+    def sort(self, attribute):
+        #sorted(mainList, key=lambda h: (h.name, h.level))
+        #self.table = sorted(self.table, key=lambda x: x.attribute)
+        self.table.sort(key=lambda x:x[attribute])
+        
+    def filter(self, attribute, value):
+        filteredList = [row for row in self.table if row[attribute] == value]    
 

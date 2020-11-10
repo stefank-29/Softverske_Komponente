@@ -39,7 +39,12 @@
                         <div class="formHeader">
                             <!--TODO buttoni za add, delete, update -->
 
-                            <input type="submit" class="button" value="Add" />
+                            <input
+                                type="submit"
+                                class="button"
+                                value="Add"
+                                name="add"
+                            />
                             <input
                                 id="delete"
                                 type="submit"
@@ -51,11 +56,13 @@
                                 type="submit"
                                 class="button"
                                 value="Update"
+                                name="update"
                             />
                             <input
                                 type="submit"
                                 class="button"
                                 value="Filter"
+                                name="filter"
                             />
 
                             <!-- {% for entitet in entitet.attributes %}
@@ -93,7 +100,7 @@
                             <tr>
                                 {% for vrednost in entitet.attributes %}
                                 <td>
-                                    <input type="text" value="" required />
+                                    <input type="text" value="" />
                                 </td>
                                 {%endfor%}
                                 <!-- <td>
