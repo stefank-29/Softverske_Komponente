@@ -3,11 +3,12 @@ import json
 
 
 class JSON():
-    def __init__(self, entity, attributes,data, file_):
+    def __init__(self, entity, attributes,data,file_):
         self.entity = entity
         self.attributes = attributes
         self.file = file_
         self.table = []
+        self.table.append({'Ime':self.entity})
         for instance in data:
             dictionary = {}
             for (atr, elem) in zip(attributes, instance):
@@ -39,7 +40,3 @@ class JSON():
         
 
 
-proba = JSON('skola', ['ime', 'prezime', 'razred'], [['stefan', 'karaferovic', 'treci'], ['luka', 'jovanovic', 'treci']], 'test.json')
-
-#proba.write()
-proba.read('test.json')
