@@ -22,13 +22,21 @@ function selectRow() {
     });
     i = 0;
 
+    let hiddenRow = table.querySelectorAll('td input.hidden');
+
     attributes = cellsInRow.forEach((cell) => {
         cell.classList.add('selected');
         let input = cell.querySelector('input');
-        obj[atributi[i++]] = input.value;
+        obj[atributi[i]] = input.value;
+        // console.log(input.value);
+        hiddenRow[i++].value = input.value;
         //input.setAttribute('name', `get`);
     });
-    console.log(obj);
+    // console.log(obj);
+    hiddenRow.forEach((row) => {
+        //console.log(row);
+        //console.log(row.value);
+    });
     return obj;
 }
 
@@ -36,17 +44,16 @@ cells.forEach((cell) => {
     cell.addEventListener('click', selectRow);
 });
 
-function deleteRow(e) {
-    e.preventDefault();
-    selectedCells = table.querySelectorAll('.selected');
+// function deleteRow(e) {
+//     selectedCells = table.querySelectorAll('.selected');
 
-    selectedCells.forEach((cell) => {
-        // cell.parentNode.removeChild(cell);
-        input = cell.querySelector('input');
-        input.setAttribute('name', `get`);
-    });
+//     selectedCells.forEach((cell) => {
+//         // cell.parentNode.removeChild(cell);
+//         input = cell.querySelector('input');
+//         input.setAttribute('name', `get`);
+//     });
 
-    form.submit();
-}
+//     form.submit();
+// }
 
 deleteBtn.addEventListener('click', deleteRow);

@@ -99,12 +99,13 @@ def dataBaseTable(request):
 def dbTable(request):
        nizRedova = []
        
-       ent = request.session['e']
        entitet = Entitet(None,[],None)
        if request.session['putanja'] == None: 
-              entitet.attributes = ent.get('attributes')
-              entitet.title = ent.get('title')
-              entitet.id_=0       
+            ent = request.session['e']
+
+            entitet.attributes = ent.get('attributes')
+            entitet.title = ent.get('title')
+            entitet.id_=0       
        else:
             attr = []
             plat = platform.system()

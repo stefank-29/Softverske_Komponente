@@ -100,10 +100,7 @@
                             <tr>
                                 {% for vrednost in entitet.attributes %}
                                 <td>
-
-                                    <input type="text" value=""  />
-
-
+                                    <input type="text" value="" />
                                 </td>
                                 {%endfor%}
                                 <!-- <td>
@@ -111,6 +108,18 @@
                                 </td>
                                 <td><input type="text" value="" required /></td>
                                 <td><input type="text" value="" required /></td> -->
+                            </tr>
+
+                            <tr class="hidden">
+                                {% for vrednost in entitet.attributes %}
+                                <td>
+                                    <input
+                                        class="hidden"
+                                        type="text"
+                                        value=""
+                                    />
+                                </td>
+                                {%endfor%}
                             </tr>
                             <!-- <tr>
                                 <td>
