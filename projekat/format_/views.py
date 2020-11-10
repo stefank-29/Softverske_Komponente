@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from .Entitet import Entitet
 from django.shortcuts import redirect,reverse
 
+import glob
+import os
+
 global ent
 def home(request):
                                           
@@ -52,7 +55,11 @@ def dataBaseTable(request):
                             red.append(request.POST.get(f'{j}-{i+1}'))              
                      nizRedova.append(red)
               request.session['niz']=nizRedova
+              list_of_files = glob.glob('/path/to/folder/*') # * means all if need specific format then *.csv
+              latest_file = max(list_of_files, key=os.path.getctime)
+              print (latest_file)
               return redirect('table')
+              
        else: 
                 
              
@@ -67,5 +74,5 @@ def dbTable(request):
        entitet = Entitet(ent.get('title'),ent.get('attributes'))
        
       
-
+       
        return render(request, 'html/dbTable.html',{'entitet':entitet,'data':nizRedova})

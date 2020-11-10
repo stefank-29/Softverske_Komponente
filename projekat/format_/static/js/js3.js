@@ -3,22 +3,46 @@ const form = document.querySelector('.form');
 const count = document.querySelector('#count');
 const chooseFile = document.querySelector('#myFile');
 const submit = document.querySelector('#submit');
+// const downloadsFolder = require('downloads-folder');
+//import df from 'downloads-folder';
+
 let attributes = [];
 
 let id = 1;
+let flag = false;
 
 function saveFile(event) {
-    if (chooseFile.value == '') {
-        event.preventDefault();
-        // chooseFile.click();
-        // submit.click();
-        content = '';
-        uriContent =
-            'data:application/octet-stream,' + encodeURIComponent(content);
-        window.open(uriContent, 'neuesDokument');
-    } else {
-        submit.click();
-    }
+    event.preventDefault();
+    // chooseFile.click();
+    // submit.click();
+    // json = '';
+    // uriContent =
+    //     'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
+    // window.open(uriContent, 'neuesDokument');
+    // json = '';
+    // var uri = 'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
+    // var link = document.createElement('a');
+    // link.setAttribute('download', 'file.json');
+    // link.setAttribute('href', uri);
+    // document.body.appendChild(link);
+    // link.click();
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then((resp) => resp.blob())
+        .then((blob) => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            // the filename you want
+            a.download = 'todo-1.json';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            //alert('your file has downloaded!'); // or you know, something with better UX...
+        })
+        .catch(() => alert('oh no!'));
+
+    //console.log(df());
 }
 
 submit.addEventListener('click', saveFile);
