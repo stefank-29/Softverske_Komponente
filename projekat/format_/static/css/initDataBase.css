@@ -50,7 +50,9 @@ td.selected input {
     background-color: rgb(50, 69, 165);
     color: white;
 }
-
+div.hidden {
+    display: none;
+}
 input.button {
     width: 10rem !important;
     padding: 1.2rem 0.7rem;
@@ -68,7 +70,10 @@ input.button {
     color: rgb(255, 255, 255);
     background-color: rgb(100, 221, 44) !important;
 }
-
+input:disabled {
+    color: white;
+    background-color: rgb(35, 51, 46);
+}
 *,
 *::after,
 *::before {
