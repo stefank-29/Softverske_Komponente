@@ -67,7 +67,7 @@ function addInputDiv(e) {
     const attributesHeader = document.querySelector('.formHeader');
     let len = attributesHeader.childElementCount;
 
-    if (isAutoinc.textContent == '0') {
+    if (isAutoinc.textContent == 'autoIncrement') {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('name', `id-${id}`);
@@ -80,7 +80,7 @@ function addInputDiv(e) {
     } else {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
-        input.setAttribute('name', `${id}`);
+        input.setAttribute('name', `id-${id}`);
         input.setAttribute('id', `${id}`);
         input.required = true;
         inputDiv2.appendChild(input);
@@ -119,7 +119,7 @@ function addInputs() {
     headerItems.forEach((item) => {
         attributes.push(item.textContent);
     });
-    if (isAutoinc.textContent == '0') {
+    if (isAutoinc.textContent == 'autoIncrement') {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('name', `id-1`);
