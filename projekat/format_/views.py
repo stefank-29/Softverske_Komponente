@@ -36,7 +36,7 @@ def makeEntity(request):
                             break
                      else:
                             atributi.append(atribut)
-              entitet = Entitet(title,atributi,0) 
+              entitet = Entitet(title,atributi,id_) 
               
               request.session['e']=entitet.__dict__
               
@@ -48,9 +48,9 @@ def makeEntity(request):
     
 def dataBaseTable(request):
        ent = request.session['e']
-
-       entitet = Entitet(ent.get('title'),ent.get('attributes'),0)
        id_ = request.session['id_'] 
+       entitet = Entitet(ent.get('title'),ent.get('attributes'),id_)
+       
         
        if request.method == "POST":
               ent = request.session['e']
@@ -62,8 +62,10 @@ def dataBaseTable(request):
                      red =[] 
                      if id_ == 'autoIncrement':
                             red.append(i+1)
-                     for j in ent.get('attributes'): 
                             
+                     for j in ent.get('attributes'): 
+                            if request.POST.get(f'{j}-{i+1}') == None:
+                                   continue 
                             red.append(request.POST.get(f'{j}-{i+1}'))
                      
 
