@@ -20,10 +20,7 @@ class JSON():
     def write(self):
         f=open(self.file, "w")
         jsonRows = []
-        # for row in self.table:
-        #     jsonRows.append(json.dumps(row, indent=4))
-
-
+        
         f.write(json.dumps(self.table, indent=4))
             
         f.close()
@@ -39,7 +36,4 @@ class JSON():
         
 
 
-proba = JSON('skola', ['ime', 'prezime', 'razred'], [['stefan', 'karaferovic', 'treci'], ['luka', 'jovanovic', 'treci']], 'test.json')
 
-#proba.write()
-proba.read('test.json')

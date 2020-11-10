@@ -1,7 +1,6 @@
 const button = document.querySelector('#btn-1');
 const form = document.querySelector('.form');
 const count = document.querySelector('#count');
-const downloadsFolder = require('downloads-folder');
 
 let id = 2;
 

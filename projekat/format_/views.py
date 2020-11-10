@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .Entitet import Entitet
 from django.shortcuts import redirect,reverse
+from .jsonImplementation import JSON
+from npm.finders import npm_install
 
 global ent
 def home(request):
@@ -66,6 +68,6 @@ def dbTable(request):
 
        entitet = Entitet(ent.get('title'),ent.get('attributes'))
        
-      
+       json = JSON(entitet.title,entitet.attributes,nizRedova)
 
        return render(request, 'html/dbTable.html',{'entitet':entitet,'data':nizRedova})
