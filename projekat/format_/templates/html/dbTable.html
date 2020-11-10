@@ -51,6 +51,7 @@
                                 type="submit"
                                 class="button"
                                 value="Update"
+                                name="update"
                             />
                             <input
                                 type="submit"
@@ -93,7 +94,7 @@
                             <tr>
                                 {% for vrednost in entitet.attributes %}
                                 <td>
-                                    <input type="text" value="" required />
+                                    <input type="text" value=""  />
                                 </td>
                                 {%endfor%}
                                 <!-- <td>
