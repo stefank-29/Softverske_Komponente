@@ -58,7 +58,7 @@ function addInputDiv(e) {
         input.setAttribute('type', 'text');
         input.setAttribute('name', `id-${id}`);
         input.setAttribute('id', `id-${id}`);
-        input.setAttribute('value', `${id}`);
+        input.setAttribute('value', `${id.toString()}`);
         input.required = true;
         input.disabled = true;
 
