@@ -53,12 +53,20 @@ class Entitet():
       for d in self.table:
          if d == obj:
             self.table.remove(d)
-      print(self.table)
+        
                 
-      self.write(file_) 
+         self.write(file_) 
 
 
+    
+   def update(self,obj,file_,red):
+        
+        for i in range(1,len(self.table)):
+            if i+1 == int(red):
+                print(f'{i+1} ,  {red}')
+                self.table[i] = obj.copy()
 
+        self.write(file_)
 
        
        

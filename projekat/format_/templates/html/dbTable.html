@@ -92,7 +92,7 @@
                             <tr>
                                 {% for vrednost in student %}
                                 <td>
-                                    <input type="text" value="{{vrednost}}" />
+                                    <input type="text" value="{{vrednost}}" name="upd" />
                                 </td>
                                 {%endfor%}
                             </tr>
@@ -127,7 +127,7 @@
                                 class="hidden"
                                 type="text"
                                 value=""
-                                name="hd"
+                                name="rowNum"
                                 id="rowNum"
                             />
                             <!-- <tr>

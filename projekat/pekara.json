@@ -1,0 +1,31 @@
+[
+    {
+        "#_DataBase_#": "pekara"
+    },
+    {
+        "#_Atributi_#": [
+            "id",
+            "hleb",
+            "pekarka",
+            "burek"
+        ]
+    },
+    {
+        "id": "1",
+        "hleb": "beli",
+        "pekarka": "lepa",
+        "burek": "meso"
+    },
+    {
+        "id": "2",
+        "hleb": "rezani",
+        "pekarka": "ruza",
+        "burek": "sir"
+    },
+    {
+        "id": "3",
+        "hleb": "crni",
+        "pekarka": "sneza",
+        "burek": "prazan"
+    }
+]
