@@ -9,11 +9,13 @@ class JSON():
         self.file = file_
         self.table = []
         self.data = data
+        self.table.append({'Ime':self.entity})
+        self.table.append({'Atributi':self.attributes})
         self.toci()                
         
 
     def toci(self):
-        self.table.append({'Ime':self.entity})
+        
         for instance in self.data:
             dictionary = {}
             for (atr, elem) in zip(self.attributes, instance):
@@ -35,25 +37,21 @@ class JSON():
     def read(self, file_):
         with open(file_, 'r') as f:
             docs = json.load(f)
-            return docs
+
+            return docs    
             # for doc in docs:
             #     for k, v in doc.items():
             #         print(f"{k} {v}")
 
     def delete(self,obj):
-        
+        print(self.table)
         for d in self.table:
             if d == obj:
                 self.table.remove(obj)
-        print(self.table)        
+                
         self.write()        
                  
                 
-    def sort(self, attribute):
-        #sorted(mainList, key=lambda h: (h.name, h.level))
-        #self.table = sorted(self.table, key=lambda x: x.attribute)
-        self.table.sort(key=lambda x:x[attribute])
-        
-    def filter(self, attribute, value):
-        filteredList = [row for row in self.table if row[attribute] == value]    
+
+
 

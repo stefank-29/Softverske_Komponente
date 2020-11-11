@@ -1,17 +1,6 @@
 [
     {
-        "Ime": "Baza"
+        "#_DataBase_#": null
     },
-    {
-        "id": 1,
-        "Ime ": "s",
-        "Prezime": "k",
-        "Razred": "3"
-    },
-    {
-        "id": 2,
-        "Ime ": "l",
-        "Prezime": "j",
-        "Razred": "3"
-    }
+    {}
 ]

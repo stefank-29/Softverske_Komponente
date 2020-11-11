@@ -88,7 +88,7 @@
                                 <th>Lastname</th>
                                 <th>Age</th>
                             </tr> -->
-                            {% for student in data %}
+                            {% for student in entitet.data %}
                             <tr>
                                 {% for vrednost in student %}
                                 <td>
@@ -117,6 +117,7 @@
                                         class="hidden"
                                         type="text"
                                         value=""
+                                        name = "hd"
                                     />
                                 </td>
                                 {%endfor%}
