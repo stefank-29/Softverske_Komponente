@@ -198,9 +198,21 @@ def dbTable(request):
             return redirect('table')
                 
         elif request.POST.get('update'):
-            print('aaaa')       
-
-       
+           rowNum = request.POST.get('rowNum')
+           tabela = request.POST.getlist('upd')
+          
+           
+           data = []
+           obj = {}
+           for i in range((int(rowNum)-1)*len(entitet.attributes),int(rowNum)*len(entitet.attributes)):
+            data.append(tabela[i])
+           for k ,v in zip(entitet.attributes,data):
+                obj[k] = v     
+           
+           entitet.update(obj,fajl,rowNum) 
+           return redirect('table') 
+        elif request.POST.get('filter'):
+           pass
        
       
     else:
