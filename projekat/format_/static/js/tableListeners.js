@@ -2,6 +2,7 @@ const table = document.querySelector('table');
 const cells = table.querySelectorAll('td');
 const deleteBtn = document.querySelector('#delete');
 const form = document.querySelector('.form');
+const rowNum = document.querySelector('#rowNum');
 
 let selectedRow;
 obj = {};
@@ -28,15 +29,14 @@ function selectRow() {
         cell.classList.add('selected');
         let input = cell.querySelector('input');
         obj[atributi[i]] = input.value;
-        // console.log(input.value);
         hiddenRow[i++].value = input.value;
-        //input.setAttribute('name', `get`);
     });
-    // console.log(obj);
-    hiddenRow.forEach((row) => {
-        //console.log(row);
-        //console.log(row.value);
-    });
+
+    let x = 1;
+    let rows = Array.from(table.querySelectorAll('tr'));
+    let n = rows.findIndex((row) => row == selectedRow);
+    console.log(n);
+    rowNum.value = n;
     return obj;
 }
 
