@@ -1,0 +1,90 @@
+/**********add task modal*********/
+.modalBg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: none;
+}
+#modalForm {
+    width: 90%;
+    height: 90%;
+}
+.modalDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 2rem auto;
+}
+
+#modal {
+    position: absolute;
+    z-index: 10;
+    height: 65rem;
+    width: 65rem;
+    padding: 3rem;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.3);
+    animation: popup 0.4s linear 1 forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#modal input[type='submit'] {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    color: whitesmoke;
+
+    padding: 0.5rem 2rem;
+    font-size: 2rem;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: rgb(31, 85, 15);
+    cursor: pointer;
+}
+
+@keyframes popup {
+    0% {
+        /* transform: scale(0.1) ; */
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1) translateX(0) translateY(0);
+        opacity: 1;
+    }
+}
+
+#modal input[type='text'],
+input[type='date'],
+textarea {
+    padding: 1rem;
+    margin: 1rem 2rem;
+    width: 85%;
+    font-size: 2rem;
+    background-color: rgba(197, 219, 253, 0.4);
+    /* border: 1.5px solid rgb(54, 54, 167); */
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-family: 'Mulish', sans-serif;
+    color: rgb(10, 37, 128);
+}
+#modal input[type='text']::placeholder,
+textarea::placeholder {
+    color: rgb(10, 37, 128);
+}
+textarea {
+    resize: none;
+}

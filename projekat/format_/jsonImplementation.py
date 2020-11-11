@@ -51,7 +51,7 @@ class JSON():
                 
         self.write()        
                  
-     def sort(self, attribute):
+    def sort(self, attribute):
 
         #sorted(mainList, key=lambda h: (h.name, h.level))
         #self.table = sorted(self.table, key=lambda x: x.attribute)

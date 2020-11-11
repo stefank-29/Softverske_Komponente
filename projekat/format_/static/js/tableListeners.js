@@ -56,4 +56,4 @@ cells.forEach((cell) => {
 //     form.submit();
 // }
 
-deleteBtn.addEventListener('click', deleteRow);
+//deleteBtn.addEventListener('click', deleteRow);

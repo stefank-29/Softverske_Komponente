@@ -247,6 +247,11 @@ body {
 tr.hidden {
     display: none;
 }
+select.sort {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+}
 /* sudo fuser -k 8000/tcp */
 input.hidden {
     display: none;

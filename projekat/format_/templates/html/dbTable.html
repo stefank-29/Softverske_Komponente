@@ -8,6 +8,8 @@
         <title>Baza - Kreiranje entiteta</title>
 
         <link rel="stylesheet" href="{% static '/css/initDataBase.css' %}" />
+        <link rel="stylesheet" href="{% static '/css/modal.css' %}" />
+
         <link
             rel="icon"
             type="image/png"
@@ -30,6 +32,11 @@
     <body>
         <div class="page-container">
             <div class="page-content">
+                <div class="modalBg">
+                    <div id="modal">
+                        <form id="modalForm" action="" method=""></form>
+                    </div>
+                </div>
                 <div class="inner">
                     <form action="" method="POST" name="submit" class="form">
                         {% csrf_token %}
@@ -59,11 +66,29 @@
                                 name="update"
                             />
                             <input
+                                id="filter"
                                 type="submit"
                                 class="button"
                                 value="Filter"
                                 name="filter"
                             />
+                            <input
+                                id="sort"
+                                type="submit"
+                                class="button"
+                                value="Sort"
+                                name="sort"
+                            />
+
+                            <select
+                                name="sortInput"
+                                id="atrSelect"
+                                class="sort"
+                            >
+                                {% for entitet in entitet.attributes %}
+                                <option value="{{entitet}}">{{entitet}}</option>
+                                {%endfor%}
+                            </select>
 
                             <!-- {% for entitet in entitet.attributes %}
 
@@ -127,7 +152,7 @@
                                 class="hidden"
                                 type="text"
                                 value=""
-                                name="hd"
+                                name="rowNum"
                                 id="rowNum"
                             />
                             <!-- <tr>
@@ -177,5 +202,6 @@
         </div>
 
         <script src="{% static '/js/tableListeners.js' %}"></script>
+        <script src="{% static '/js/modal.js' %}"></script>
     </body>
 </html>
