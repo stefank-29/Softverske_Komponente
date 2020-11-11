@@ -1,5 +1,6 @@
 import json
 from django.db import models
+from operator import itemgetter, attrgetter
  
 class Entitet():
    def __init__(self,title,attributes,id_,data):
@@ -58,12 +59,27 @@ class Entitet():
       self.write(file_) 
 
 
-
-
+   def sort(self, attributes): # tuple sa atributima i da li je rast ili opad
+      
+    for key, reverse in reversed(attributes):
+        self.table.sort(key=attrgetter(key), reverse=reverse)
+    #return self.table
        
+    #sort(list(student_objects), (('grade', True), ('age', False)))
        
 
+    def filter(self, lists):  # [atribut, compare, value] ovde lista listi
+        filtered_list = self.table
+       
+    
+        for list_ in lists:
+            if list_[1] == '==':
+                filtered_list = [x for x in filtered_list if x[list_[0]] == list_[2]]
+            elif list_[1] == '>':
+                filtered_list = [x for x in filtered_list if x[list_[0]] > list_[2]] 
+            elif list_[1] == '<':
+                filtered_list = [x for x in filtered_list if x[list_[0]] < list_[2]] 
+            elif list_[1] == 'pocinje sa':
+                filtered_list = [x for x in filtered_list if x[list_[0]].startswith(list_[2])]
 
-
-
-
+        #izrenderovati filtered_list
