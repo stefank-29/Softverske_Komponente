@@ -248,7 +248,9 @@ tr.hidden {
     display: none;
 }
 /* sudo fuser -k 8000/tcp */
-
+input.hidden {
+    display: none;
+}
 /******** footer **********/
 footer div {
     position: absolute;
