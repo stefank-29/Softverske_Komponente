@@ -8,6 +8,8 @@
         <title>Baza - Kreiranje entiteta</title>
 
         <link rel="stylesheet" href="{% static '/css/initDataBase.css' %}" />
+        <link rel="stylesheet" href="{% static '/css/modal.css' %}" />
+
         <link
             rel="icon"
             type="image/png"
@@ -30,8 +32,13 @@
     <body>
         <div class="page-container">
             <div class="page-content">
+                <div class="modalBg">
+                    <div id="modal">
+                        <form id="modalForm" action="" method=""></form>
+                    </div>
+                </div>
                 <div class="inner">
-                    <form action="?" method="POST" class="form">
+                    <form action="" method="POST" name="submit" class="form">
                         {% csrf_token %}
                         <div class="headerItem" id="entity-name">
                             {{entitet.title}}
@@ -39,22 +46,49 @@
                         <div class="formHeader">
                             <!--TODO buttoni za add, delete, update -->
 
-                            <input type="submit" class="button" value="Add" />
                             <input
                                 type="submit"
                                 class="button"
+                                value="Add"
+                                name="add"
+                            />
+                            <input
+                                id="delete"
+                                type="submit"
+                                class="button"
+                                name="delete"
                                 value="Delete"
                             />
                             <input
                                 type="submit"
                                 class="button"
                                 value="Update"
+                                name="update"
                             />
                             <input
+                                id="filter"
                                 type="submit"
                                 class="button"
                                 value="Filter"
+                                name="filter"
                             />
+                            <input
+                                id="sort"
+                                type="submit"
+                                class="button"
+                                value="Sort"
+                                name="sort"
+                            />
+
+                            <select
+                                name="sortInput"
+                                id="atrSelect"
+                                class="sort"
+                            >
+                                {% for entitet in entitet.attributes %}
+                                <option value="{{entitet}}">{{entitet}}</option>
+                                {%endfor%}
+                            </select>
 
                             <!-- {% for entitet in entitet.attributes %}
 
@@ -79,17 +113,17 @@
                                 <th>Lastname</th>
                                 <th>Age</th>
                             </tr> -->
-                            {% for student in data %}
+                            {% for student in entitet.data %}
                             <tr>
                                 {% for vrednost in student %}
                                 <td>
-                                    <input type="text" value="{{vrednost}}" />
+                                    <input type="text" value="{{vrednost}}" name="upd" />
                                 </td>
                                 {%endfor%}
                             </tr>
                             {%endfor%}
                             <tr>
-                                {% for vrednost in student %}
+                                {% for vrednost in entitet.attributes %}
                                 <td>
                                     <input type="text" value="" />
                                 </td>
@@ -100,6 +134,32 @@
                                 <td><input type="text" value="" required /></td>
                                 <td><input type="text" value="" required /></td> -->
                             </tr>
+
+                            <tr class="hidden">
+                                {% for vrednost in entitet.attributes %}
+                                <td>
+                                    <input
+                                        class="hidden"
+                                        type="text"
+                                        value=""
+                                        name="hd"
+                                    />
+                                </td>
+                                {%endfor%}
+                            </tr>
+
+                            <input
+                                class="hidden"
+                                type="text"
+                                value=""
+                                name="rowNum"
+                                id="rowNum"
+                            />
+                            <input
+                                id="idType"
+                                type="text"
+                                value="{{entitet.id_}}"
+                            />
                             <!-- <tr>
                                 <td>
                                     <input type="text" value="Eve" />
@@ -124,7 +184,7 @@
                             </tr> -->
                         </table>
 
-                        <input type="submit" value="Sacuvaj" id="submit" />
+                        <input type="submit" value="Sacuvaj" class="submit" />
                     </form>
                 </div>
             </div>
@@ -147,5 +207,6 @@
         </div>
 
         <script src="{% static '/js/tableListeners.js' %}"></script>
+        <script src="{% static '/js/modal.js' %}"></script>
     </body>
 </html>

@@ -11,9 +11,11 @@ let isCreated = '';
 let type = '';
 
 yes.addEventListener('click', (e) => {
-    file.innerHTML = `<input type="file" id="myfile" name="myfile">`;
+    
+    file.innerHTML = `<input type="file" id="myfile" name="myfile" enctype="multipart/form-data">`;
     file.style.display = 'flex';
     const input = file.querySelector('input');
+    e.preventDefault();
     input.addEventListener('change', () => {
         console.log(input.value);
         console.log(downloadsFolder());

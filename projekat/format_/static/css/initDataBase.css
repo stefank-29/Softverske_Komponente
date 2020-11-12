@@ -50,7 +50,9 @@ td.selected input {
     background-color: rgb(50, 69, 165);
     color: white;
 }
-
+div.hidden {
+    display: none;
+}
 input.button {
     width: 10rem !important;
     padding: 1.2rem 0.7rem;
@@ -68,7 +70,10 @@ input.button {
     color: rgb(255, 255, 255);
     background-color: rgb(100, 221, 44) !important;
 }
-
+input:disabled {
+    color: white;
+    background-color: rgb(51, 95, 81);
+}
 *,
 *::after,
 *::before {
@@ -212,7 +217,8 @@ body {
     background-color: rgb(139, 42, 42);
 }
 
-#submit {
+#submit,
+.submit {
     color: whitesmoke;
     position: absolute;
     top: -2rem;
@@ -225,7 +231,8 @@ body {
     background-color: rgb(31, 85, 15);
     cursor: pointer;
 }
-#submit:hover {
+#submit:hover,
+.submit:hover {
     background-color: rgb(78, 161, 52);
 }
 .hiden__input {
@@ -237,8 +244,18 @@ body {
     top: -2.5rem !important;
     background-color: rgb(51, 197, 117) !important;
 }
+tr.hidden {
+    display: none;
+}
+select.sort {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+}
 /* sudo fuser -k 8000/tcp */
-
+input.hidden {
+    display: none;
+}
 /******** footer **********/
 footer div {
     position: absolute;

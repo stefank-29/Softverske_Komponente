@@ -42,16 +42,17 @@
                             <p id="q">
                                 Da li zelite da ucitate postojecu bazu?
                             </p>
-                            <form id="form" method="post">
+                            <form id="form" method="POST">
                                 {%csrf_token%}
                                 <div>
-                                    <input
-                                        type="button"
+                                    <button
+                                        
                                         class="button"
                                         id="yes"
                                         name="yes"
                                         value="yes"
-                                    />
+                                    >yes
+                                    </button>
                                     <input
                                         type="button"
                                         class="button"
@@ -72,9 +73,10 @@
                                     class="hiden__input"
                                     name="typeInput"
                                 />
+                                <div class="choose-file"></div>
                             </form>
                         </div>
-                        <div class="choose-file"></div>
+                        
                     </div>
                 </div>
             </div>

@@ -1,0 +1,13 @@
+[
+    {
+        "#_DataBase_#": "skolica"
+    },
+    {
+        "#_Atributi_#": [
+            "id",
+            "ime",
+            "prezime",
+            "razred"
+        ]
+    }
+]

@@ -3,6 +3,7 @@ const form = document.querySelector('.form');
 const count = document.querySelector('#count');
 const chooseFile = document.querySelector('#myFile');
 const submit = document.querySelector('#submit');
+const isAutoinc = document.querySelector('.hidden');
 // const downloadsFolder = require('downloads-folder');
 //import df from 'downloads-folder';
 
@@ -14,20 +15,6 @@ let flag = 0;
 function saveFile(event) {
     if (flag == 0) {
         event.preventDefault();
-
-        // chooseFile.click();
-        // submit.click();
-        // json = '';
-        // uriContent =
-        //     'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
-        // window.open(uriContent, 'neuesDokument');
-        // json = '';
-        // var uri = 'data:application/json;charset=UTF-8,' + encodeURIComponent(json);
-        // var link = document.createElement('a');
-        // link.setAttribute('download', 'file.json');
-        // link.setAttribute('href', uri);
-        // document.body.appendChild(link);
-        // link.click();
         fetch('https://jsonplaceholder.typicode.com/todos/1')
             .then((resp) => resp.blob())
             .then((blob) => {
@@ -66,7 +53,26 @@ function addInputDiv(e) {
     const attributesHeader = document.querySelector('.formHeader');
     let len = attributesHeader.childElementCount;
 
-    for (let i = 0; i < len; i++) {
+    if (isAutoinc.textContent == 'autoIncrement') {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `id-${id}`);
+        input.setAttribute('id', `id-${id}`);
+        input.setAttribute('value', `${id.toString()}`);
+        input.required = true;
+        input.disabled = true;
+
+        inputDiv2.appendChild(input);
+    } else {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `id-${id}`);
+        input.setAttribute('id', `${id}`);
+        input.required = true;
+        inputDiv2.appendChild(input);
+    }
+
+    for (let i = 1; i < len; i++) {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('name', `${attributes[i]}-${id}`);
@@ -99,8 +105,26 @@ function addInputs() {
     headerItems.forEach((item) => {
         attributes.push(item.textContent);
     });
+    if (isAutoinc.textContent == 'autoIncrement') {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `id-1`);
+        input.setAttribute('id', `id-1`);
+        input.setAttribute('value', `1`);
+        input.required = true;
+        input.disabled = true;
 
-    for (let i = 0; i < len; i++) {
+        inputDiv.appendChild(input);
+    } else {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', `id-1`);
+        input.setAttribute('id', `id-1`);
+        input.required = true;
+        inputDiv.appendChild(input);
+    }
+
+    for (let i = 1; i < len; i++) {
         const input = document.createElement('input');
         input.setAttribute('type', 'text');
         input.setAttribute('name', `${attributes[i]}-${id}`);
