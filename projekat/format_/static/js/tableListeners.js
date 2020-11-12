@@ -1,8 +1,10 @@
 const table = document.querySelector('table');
+const rows = Array.from(table.querySelectorAll('tr'));
 const cells = table.querySelectorAll('td');
 const deleteBtn = document.querySelector('#delete');
 const form = document.querySelector('.form');
 const rowNum = document.querySelector('#rowNum');
+const idType = document.querySelector('#idType');
 
 let selectedRow;
 obj = {};
@@ -57,3 +59,22 @@ cells.forEach((cell) => {
 // }
 
 //deleteBtn.addEventListener('click', deleteRow);
+
+function blockIdInputs() {
+    let rowsCount = rows.length;
+    let lastId;
+    if (idType.value == '0') {
+        for (let i = 1; i < rowsCount - 1; i++) {
+            let idCell = rows[i].querySelector('td').querySelector('input');
+            if (i == rowsCount - 3) {
+                lastId = idCell.value;
+            }
+            if (i == rowsCount - 2) {
+                idCell.value = (parseInt(lastId) + 1).toString();
+            }
+            idCell.disabled = true;
+        }
+    }
+}
+
+window.onload = blockIdInputs();

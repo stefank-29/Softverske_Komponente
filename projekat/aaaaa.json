@@ -1,0 +1,19 @@
+[
+    {
+        "#_DataBase_#": "aaaaa"
+    },
+    {
+        "#_Atributi_#": [
+            "id",
+            "aaaa",
+            "aaa",
+            "bbb"
+        ]
+    },
+    {
+        "id": "1",
+        "aaaa": "asd",
+        "aaa": "dsad",
+        "bbb": "sad"
+    }
+]
