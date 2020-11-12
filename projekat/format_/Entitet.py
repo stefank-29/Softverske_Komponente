@@ -54,9 +54,10 @@ class Entitet():
       for d in self.table:
          if d == obj:
             self.table.remove(d)
-      print(self.table)
+        
                 
-      self.write(file_) 
+         self.write(file_) 
+
 
 
    def sort(self, attributes): # tuple sa atributima i da li je rast ili opad
@@ -64,6 +65,17 @@ class Entitet():
     for key, reverse in reversed(attributes):
         self.table.sort(key=attrgetter(key), reverse=reverse)
     #return self.table
+
+    
+   def update(self,obj,file_,red):
+        
+        for i in range(1,len(self.table)):
+            if i+1 == int(red):
+                print(f'{i+1} ,  {red}')
+                self.table[i] = obj.copy()
+
+        self.write(file_)
+
        
     #sort(list(student_objects), (('grade', True), ('age', False)))
        
